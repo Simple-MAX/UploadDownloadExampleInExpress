@@ -19,7 +19,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/", upload.single("file"), (req, res) => {
+app.post("/", upload.any(), (req, res) => {
+  console.log(req.body);
   res.send("File uploaded");
 });
 
